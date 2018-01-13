@@ -5,22 +5,19 @@ import java.util.Arrays;
 
 // Base array for decorators
 public class BaseArray implements SmartArray {
-    protected Object[] array;
-    SmartArray smartArray;
+    protected Object[] baseArray;
 
     /*public BaseArray() {
         array = new Object[100];
     }*/
 
-    BaseArray(SmartArray smartArray) {
-        this.smartArray = smartArray;
+    public BaseArray(Object[] baseArray) {
+        this.baseArray = baseArray;
     }
 
     @Override
     public Object[] toArray() {
-        ArrayList arr = new ArrayList();
-        arr.addAll(Arrays.asList(smartArray));
-        return arr.toArray();
+        return baseArray;
     }
 
     @Override
@@ -30,6 +27,6 @@ public class BaseArray implements SmartArray {
 
     @Override
     public int size() {
-        return array.length;
+        return baseArray.length;
     }
 }

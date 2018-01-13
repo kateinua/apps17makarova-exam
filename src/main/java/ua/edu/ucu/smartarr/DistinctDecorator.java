@@ -6,7 +6,7 @@ import java.util.Arrays;
 // Remove duplicates from SmartArray. Use method equals() to compare objects
 public class DistinctDecorator extends SmartArrayDecorator {
 
-    Object[] array;
+    //Object[] array;
 
     public DistinctDecorator(SmartArray smartArray) {
         super(smartArray);
@@ -14,7 +14,7 @@ public class DistinctDecorator extends SmartArrayDecorator {
 
     @Override
     public Object[] toArray() {
-        array = super.toArray();
+        Object[] array = smartArray.toArray();
         ArrayList newArray = new ArrayList();
         newArray.addAll(Arrays.asList(array));
         for (int i = 0; i < array.length; i++) {
@@ -35,6 +35,6 @@ public class DistinctDecorator extends SmartArrayDecorator {
 
     @Override
     public int size() {
-        return array.length;
+        return toArray().length;
     }
 }
